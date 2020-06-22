@@ -3,6 +3,10 @@ import {Link} from 'react-router-dom'
 
 
 const Login = () => {
+
+    //all form fields still need a value, and onChange. 
+  //form needs an onSubmit
+  //state needs to be added
     return (
         <>
             <form>

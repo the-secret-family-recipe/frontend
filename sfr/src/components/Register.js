@@ -49,6 +49,7 @@ const Register = () => {
 
                     />
                 </div>
+                <button type='submit'>Register</button>
             </form>
             <div className='account'>
                     Already have an account?&nbsp;
