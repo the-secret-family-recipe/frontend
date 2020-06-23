@@ -33,7 +33,7 @@ const Register = () => {
     const handleRegister = e => {
         e.preventDefault()
         axiosWithAuth()
-            // .post('/api/auth/register', registerInfo)
+    
             .post('/api/auth/register', registerInfo)
             .then(res => {
                 console.log('new user:', res)
