@@ -1,38 +1,78 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
+import React, {useState} from 'react'
+import {Link, useHistory} from 'react-router-dom'
+import axios from 'axios'
 
+import {axiosWithAuth} from '../utils/axiosWithAuth'
 
-
+// const initialState = {
+//     firstname:'',
+//     lastname:'',
+//     email:'',
+//     username:'',
+//     password:''
+// }
+const initialState = {
+  
+    email:'',
+    username:'',
+    password:''
+}
 
 const Register = () => {
+    let history = useHistory()
+    const [registerInfo, setRegisterInfo] = useState(initialState)
 
-  //all form fields still need a value, and onChange. 
-  //form needs an onSubmit
-  //state needs to be added
+    const handleFormChange = e => {
+        setRegisterInfo({
+            ...registerInfo,
+            [e.target.name]: e.target.value 
+        })
+    }
+
+
+    const handleRegister = e => {
+        e.preventDefault()
+        axiosWithAuth()
+            // .post('/api/auth/register', registerInfo)
+            .post('/api/auth/register', registerInfo)
+            .then(res => {
+                console.log('new user:', res)
+                history.push('/login')
+               
+            })
+            .catch(err => console.log(err))
+    }
+
+
     return (
        <>
-            <form>
-                <div className='input-container'>
+            <form onSubmit={(e) => handleRegister(e)}>
+                {/* <div className='input-container'>
                     <label>First Name:&nbsp;</label>
                     <input 
                         type='text'
-                        name='firstName'
-
+                        name='firstname'
+                        value={registerInfo.firstname}
+                        onChange={(e) => handleFormChange(e)}
                     />
                 </div>
                 <div className='input-container'>
                     <label>Last Name:&nbsp;</label>
                     <input 
                         type='text'
-                        name='lastName'
+                        name='lastname'
+                        value={registerInfo.lastname}
+                        onChange={(e) => handleFormChange(e)}
 
                     />
-                </div>
+                </div> */}
                 <div className='input-container'>
                     <label>Email:&nbsp;</label>
                     <input 
                         type='email'
                         name='email'
+                        value={registerInfo.email}
+                        onChange={(e) => handleFormChange(e)}
 
                     />
                 </div>           
@@ -41,6 +81,8 @@ const Register = () => {
                     <input 
                         type='text'
                         name='username'
+                        value={registerInfo.username}
+                        onChange={(e) => handleFormChange(e)}
 
                     />
                 </div>
@@ -49,7 +91,8 @@ const Register = () => {
                     <input 
                         type='password'
                         name='password'
-
+                        value={registerInfo.password}
+                        onChange={(e) => handleFormChange(e)}
                     />
                 </div>
                 <button type='submit'>Register</button>

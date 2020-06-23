@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, Switch, NavLink} from 'react-router-dom'
+import {Route, Switch, NavLink, useHistory} from 'react-router-dom'
 import './App.css';
 
 import Register from './components/Register'
@@ -9,6 +9,9 @@ import MemberPage from './components/MemberPage'
 import AddRecipe from './components/AddRecipe'
 
 function App() {
+
+
+
   return (
     <div className="App">
       <nav>
@@ -19,6 +22,8 @@ function App() {
         <NavLink exact to='/add-recipe'>
           Add Recipe
         </NavLink>
+    
+        
       </nav>
       <Switch>
         <Route exact path='/' component={Register}>
