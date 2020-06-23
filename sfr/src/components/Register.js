@@ -4,19 +4,19 @@ import axios from 'axios'
 
 import {axiosWithAuth} from '../utils/axiosWithAuth'
 
-// const initialState = {
-//     firstname:'',
-//     lastname:'',
-//     email:'',
-//     username:'',
-//     password:''
-// }
 const initialState = {
-  
+    firstname:'',
+    lastname:'',
     email:'',
     username:'',
     password:''
 }
+// const initialState = {
+  
+//     email:'',
+//     username:'',
+//     password:''
+// }
 
 const Register = () => {
     let history = useHistory()
@@ -47,7 +47,7 @@ const Register = () => {
     return (
        <>
             <form onSubmit={(e) => handleRegister(e)}>
-                {/* <div className='input-container'>
+                <div className='input-container'>
                     <label>First Name:&nbsp;</label>
                     <input 
                         type='text'
@@ -65,7 +65,7 @@ const Register = () => {
                         onChange={(e) => handleFormChange(e)}
 
                     />
-                </div> */}
+                </div>
                 <div className='input-container'>
                     <label>Email:&nbsp;</label>
                     <input 

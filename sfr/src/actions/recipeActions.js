@@ -11,7 +11,7 @@ export const getRecipeData = () => dispatch => {
         .get('api/recipes')
         .then(res => {
             console.log(res);
-            dispatch({type: UPDATE_RECIPES, payload: res.data});
+            dispatch({type: UPDATE_RECIPES, payload: res.data.data});
         })
         .catch(err => {
             console.error('error fetching data from api:', err)

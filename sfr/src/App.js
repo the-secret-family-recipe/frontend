@@ -7,6 +7,7 @@ import Login from './components/Login'
 import PrivateRoute from './components/PrivateRoute'
 import MemberPage from './components/MemberPage'
 import AddRecipe from './components/AddRecipe'
+import Recipe from './components/Recipe'
 
 function App() {
 
@@ -35,6 +36,8 @@ function App() {
 
         <PrivateRoute exact path='/member-page' component={MemberPage} />
         <PrivateRoute exact path='/add-recipe' component={AddRecipe} />
+
+        <PrivateRoute exact path='/recipes/:id' component={Recipe}/>
       </Switch>
 
     </div>
