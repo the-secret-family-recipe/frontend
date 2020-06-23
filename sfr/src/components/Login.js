@@ -1,21 +1,57 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
+import React, {useState} from 'react'
+import {Link, useHistory} from 'react-router-dom'
+import axios from 'axios'
+
+import {axiosWithAuth} from '../utils/axiosWithAuth'
+
+const initialState = {
+    username: '',
+    password: '',
+}
+
 
 
 const Login = () => {
+    let history = useHistory()
+    const [loginInfo, setLoginInfo] = useState(initialState)
 
-    //all form fields still need a value, and onChange. 
-  //form needs an onSubmit
-  //state needs to be added
+
+    const handleLoginChange = e => {
+        setLoginInfo({
+            ...loginInfo,
+            [e.target.name]: e.target.value
+        })
+    }
+
+    const loginHandler = e => {
+        e.preventDefault()
+        axiosWithAuth()
+        //   .post('https://bw-savor-backend.herokuapp.com/api/auth/login', loginInfo)
+            .post('/api/auth/login', loginInfo)
+            .then(res => {
+                console.log('login:', res)
+                localStorage.setItem('token', res.data.token)
+                history.push('/member-page')
+            })
+            .catch(err => console.log('login error:', err))
+            .finally(() => {
+                window.location.reload()
+            })
+
+    }
+
+
     return (
         <>
-            <form>
+            <form onSubmit={(e) => loginHandler(e)}>
                 <div className='input-container'>
                     <label>Username:&nbsp;</label>
                     <input 
                         type='text'
                         name='username'
                         placeholder='Username'
+                        value={loginInfo.username}
+                        onChange={(e) => handleLoginChange(e)}
    
                     />
                 </div>
@@ -25,6 +61,8 @@ const Login = () => {
                         type='password'
                         name='password'
                         placeholder='Password'
+                        value={loginInfo.password}
+                        onChange={(e) => handleLoginChange(e)}
                
                     />
                 </div>
