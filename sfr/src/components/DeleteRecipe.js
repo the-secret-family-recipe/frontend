@@ -24,7 +24,7 @@ const DeleteRecipe = () => {
             .delete(`api/recipes/${id}`)
             .then( res => {
                 console.log(res)
-                push(`member-page`)
+                push(`/member-page`)
             })
             .catch(err => console.log(err))
          
