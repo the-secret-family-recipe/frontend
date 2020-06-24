@@ -7,7 +7,9 @@ import Login from './components/Login'
 import PrivateRoute from './components/PrivateRoute'
 import MemberPage from './components/MemberPage'
 import AddRecipe from './components/AddRecipe'
-import Recipe from './components/Recipe'
+import RecipeCard from './components/RecipeCard'
+import UpdateRecipe from './components/UpdateRecipe';
+import DeleteRecipe from './components/DeleteRecipe'
 
 function App() {
 
@@ -36,8 +38,10 @@ function App() {
 
         <PrivateRoute exact path='/member-page' component={MemberPage} />
         <PrivateRoute exact path='/add-recipe' component={AddRecipe} />
+        <PrivateRoute exact path='/update-recipe/:id' component={UpdateRecipe} />
+        <PrivateRoute exact path='/delete-recipe/:id' component={DeleteRecipe} />
 
-        <PrivateRoute exact path='/recipes/:id' component={Recipe}/>
+        {/* <PrivateRoute exact path='/recipe/:id' component={RecipeCard}/> */}
       </Switch>
 
     </div>

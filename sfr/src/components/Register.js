@@ -11,12 +11,7 @@ const initialState = {
     username:'',
     password:''
 }
-// const initialState = {
-  
-//     email:'',
-//     username:'',
-//     password:''
-// }
+
 
 const Register = () => {
     let history = useHistory()
