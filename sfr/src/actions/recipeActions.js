@@ -18,3 +18,5 @@ export const getRecipeData = () => dispatch => {
             dispatch({type: SET_ERROR, payload: 'error fetching data from api'});
         })
 }
+
+
