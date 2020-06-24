@@ -12,9 +12,13 @@ import UpdateRecipe from './components/UpdateRecipe';
 import DeleteRecipe from './components/DeleteRecipe'
 
 function App() {
+ 
+  const logout = e => {
+    localStorage.clear();
+    window.location.href = '/login'
+  }
 
-
-
+  
   return (
     <div className="App">
       <nav>
@@ -25,6 +29,8 @@ function App() {
         <NavLink exact to='/add-recipe'>
           Add Recipe
         </NavLink>
+        <a href='http://www.selahcreativeservices.com/savor.html'>Home</a>
+        <button onClick={(e) => logout(e)}>Logout</button>
     
         
       </nav>
