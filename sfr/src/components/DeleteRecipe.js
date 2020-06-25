@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { axiosWithAuth } from '../utils/axiosWithAuth'
 import {useParams, useHistory} from 'react-router-dom'
+import RecipeStyles from '../styles/RecipeStyles'
 
 const DeleteRecipe = () => {
     const [recipe, setRecipe] = useState({})
@@ -31,14 +32,16 @@ const DeleteRecipe = () => {
     }
 
     return(
-        <>
-            <h2>{recipe.title}</h2>
-            <p>{recipe.categories}</p>
-            <p>Ingredients:{recipe.ingredients}</p>
-            <p>Directions:{recipe.directions}</p>
-            <button onClick={() => push(`/update-recipe/${recipe.id}`)}>Edit</button>
-            <button onClick={(e) => deleteRecipe(e)}>Delete Recipe</button>
-        </>
+        <RecipeStyles>
+            <div className='card-container'>
+                <h2>{recipe.title}</h2>
+                <p>{recipe.categories}</p>
+                <p>Ingredients:{recipe.ingredients}</p>
+                <p>Directions:{recipe.directions}</p>
+                <button onClick={() => push(`/update-recipe/${recipe.id}`)}>Edit</button>
+                <button onClick={(e) => deleteRecipe(e)}>Delete Recipe</button>
+            </div>
+        </RecipeStyles>
     )
 
 }

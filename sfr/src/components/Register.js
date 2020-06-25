@@ -100,7 +100,7 @@ const Register = () => {
                         Already have an account?&nbsp;
                         <Link className='login-link' to='/login'>Click Here</Link>
                 </div>
-        </div>
+            </div>
         </RegisterStyles>
 
    ) 
