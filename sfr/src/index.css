@@ -14,4 +14,5 @@ code {
 
 html{
   background-color: #220C00;
+  box-sizing: border-box;
 }

@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
 import {Link, useHistory} from 'react-router-dom'
-import axios from 'axios'
-
 import {axiosWithAuth} from '../utils/axiosWithAuth'
+
+import RegisterStyles from '../styles/RegisterStyles'
 
 const initialState = {
     username: '',
@@ -42,38 +42,43 @@ const Login = () => {
 
 
     return (
-        <>
-            <form onSubmit={(e) => loginHandler(e)}>
-                <div className='input-container'>
-                    <label>Username:&nbsp;</label>
-                    <input 
-                        type='text'
-                        name='username'
-                        placeholder='Username'
-                        value={loginInfo.username}
-                        onChange={(e) => handleLoginChange(e)}
-   
-                    />
+        <RegisterStyles>
+            <div className='register-container'>
+                <h2>Login</h2>
+                <form onSubmit={(e) => loginHandler(e)}>
+                    <div className='input-container'>
+                        <label>Username:&nbsp;</label>
+                        <input 
+                            type='text'
+                            name='username'
+                            placeholder='Username'
+                            value={loginInfo.username}
+                            onChange={(e) => handleLoginChange(e)}
+    
+                        />
+                    </div>
+                    <div className='input-container'>
+                        <label>Password:&nbsp;</label>
+                        <input 
+                            type='password'
+                            name='password'
+                            placeholder='Password'
+                            value={loginInfo.password}
+                            onChange={(e) => handleLoginChange(e)}
+                
+                        />
+                    </div>
+                    <button type='submit'>Login</button>
+                </form>
+        
+                <div className='account'>
+                    Don't have an account?&nbsp;
+                    <Link className='register-link' to='/'>Click Here</Link>
                 </div>
-                <div className='input-container'>
-                    <label>Password:&nbsp;</label>
-                    <input 
-                        type='password'
-                        name='password'
-                        placeholder='Password'
-                        value={loginInfo.password}
-                        onChange={(e) => handleLoginChange(e)}
-               
-                    />
-                </div>
-                <button type='submit'>Login</button>
-            </form>
-       
-            <div className='account'>
-                Don't have an account?&nbsp;
-                <Link className='register-link' to='/'>Click Here</Link>
             </div>
-        </>
+            
+        </RegisterStyles>
+
     )
 }
 export default Login 

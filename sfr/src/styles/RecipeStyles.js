@@ -1,25 +1,29 @@
 import styled from 'styled-components'
 
-const RegisterStyles = styled.div`
-    display:flex;
+const RecipeStyles = styled.div`
+    display: flex;
     justify-content: center;
+    margin: 50px 0;
+    align-content: center;  
+    font-family: 'Montserrat', sans-serif;
 
-    .register-container{
-        background-color: #CB5B04;
-        margin: 50px 0;
-        width: 500px;
-        padding: 5%;
+    .card-container{
         display: flex;
         flex-direction: column;
         align-items: center;
-        line-height: 2rem;
-        border-radius: 10px;
-        color: #220C00;        
+        background-color:#CB5B04;
+        width: 70%;
+        padding: 5%;
+        border-radius:10px;
     }
+
     h2{
-        font-family: 'Great Vives', cursive; 
         font-size: 2rem;
-        color: #FFF7C6;
+    }
+
+    p{
+        color: #220C00;
+        font-size: 1.2rem
     }
 
     button{
@@ -31,8 +35,7 @@ const RegisterStyles = styled.div`
         background-color: #BCF274;
         padding: 2px 4px;
         border-radius: 10px;
-       
+        margin: 5px;
     }
-
 `;
-export default RegisterStyles
+export default RecipeStyles
