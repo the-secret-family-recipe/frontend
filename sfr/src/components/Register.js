@@ -1,7 +1,5 @@
 import React, {useState} from 'react'
 import {Link, useHistory} from 'react-router-dom'
-import axios from 'axios'
-
 import {axiosWithAuth} from '../utils/axiosWithAuth'
 
 import RegisterStyles from '../styles/RegisterStyles'
@@ -34,6 +32,7 @@ const Register = () => {
             .post('/api/auth/register', registerInfo)
             .then(res => {
                 console.log('new user:', res)
+                // localStorage.setItem('token', res.data.token)
                 history.push('/login')
                
             })

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, Switch, NavLink, useHistory} from 'react-router-dom'
+import {Route, Switch, NavLink} from 'react-router-dom'
 import './App.css';
 
 import Register from './components/Register'
@@ -34,10 +34,10 @@ function App() {
         <button className='link' onClick={(e) => logout(e)}>Logout</button> 
       </NavStyles>
       <Switch>
-        <Route exact path='/' component={Register}>
+        <Route exact path='/' >
           <Register />
         </Route>
-        <Route exact path='/login' component={Login}>
+        <Route exact path='/login' >
           <Login />
         </Route>
 

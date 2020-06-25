@@ -17,7 +17,7 @@ const RegisterStyles = styled.div`
         color: #220C00;        
     }
     h2{
-        font-family: 'Great Vives', cursive; 
+        font-family: 'Great Vibes', cursive; 
         font-size: 2rem;
         color: #FFF7C6;
     }

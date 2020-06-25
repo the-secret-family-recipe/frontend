@@ -8,7 +8,7 @@ const NavStyles = styled.header`
     padding: 3px;
 
     h1{
-        font-family: 'Great Vives', cursive; 
+        font-family: 'Great Vibes', cursive; 
         font-size: 3rem;
         margin: 0;
         padding: 0 3px;
