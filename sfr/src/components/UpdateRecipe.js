@@ -53,6 +53,7 @@ const UpdateRecipe = props => {
             .put(`api/recipes/${id}`, recipe)
             .then(res => {
                 console.log(res)
+                push('/member-page')
             })
             .catch(err => console.log(err))
     }
